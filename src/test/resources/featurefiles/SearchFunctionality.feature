@@ -1,5 +1,4 @@
-Feature: As a QA Engineer, I want to add end-to-end automated tests to the Coverage page, So that we
-can confirm there are no problems with this page.
+Feature: As a QA Engineer, I want to check if the search functionality is working as expected.
 
 	
 	Background:
@@ -16,4 +15,5 @@ can confirm there are no problems with this page.
     Examples:
     |name                                              |display|
     |"The Palgrave Handbook of African Women's Studies"|true   |
+    |"kwdwwdwpdpwdkdkopw"|true   |
     

@@ -39,7 +39,6 @@ public class SearchPageObjects extends BasePage {
 		return searchProperties;
 	}
 
-	
 	public void typeAWord(String string) throws InterruptedException {
 		getElementById((searchProperties.getProperty("search.id.searchTextBox"))).sendKeys(string);
 		getElementById((searchProperties.getProperty("search.id.searchBtn"))).click();
@@ -63,6 +62,9 @@ public class SearchPageObjects extends BasePage {
 			Assert.assertEquals(discipline, b1);
 			Assert.assertEquals(subdiscipline, b1);
 			Assert.assertEquals(language, b1);
+		} else {
+			noResult();
+			Assert.assertFalse(b1);
 		}
 
 	}
@@ -100,10 +102,23 @@ public class SearchPageObjects extends BasePage {
 			}
 
 		} else {
-			results.addAll(getElementsByXpath("//*[@id='results-list']/li"));
+			if (finalQuantityOfResult > 0) {
+				results.addAll(getElementsByXpath("//*[@id='results-list']/li"));
+			}
+
 		}
-		int numberOfRecords = results.size();
-		Assert.assertEquals(finalQuantityOfResult, numberOfRecords);
+		if (finalQuantityOfResult != 0) {
+			int numberOfRecords = results.size();
+			Assert.assertEquals(finalQuantityOfResult, numberOfRecords);
+		}
+		else {
+			noResult();
+		}
+	}
+	
+	public void noResult() {
+		String noResult = getElementByXpath((searchProperties.getProperty("search.xpath.noResult"))).getText();
+		Assert.assertEquals(noResult, "Sorry");
 	}
 
 }
