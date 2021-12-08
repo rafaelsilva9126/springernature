@@ -1,0 +1,20 @@
+search:
+  xpath: 
+    quantityOfResults: //*[@id="number-of-search-results-and-search-terms"]/strong[1]
+    contentTypeFacet: //*[@id="content-type-facet"]/ol
+    disciplineFacet: //*[@id="discipline-facet"]/ol
+    subdisciplineFacet: //*[@id="sub-discipline-facet"]/ol
+    languageFacet: //*[@id="language-facet"]/ol
+    wordTyped: //*[@id="number-of-search-results-and-search-terms"]/strong[2]
+    nextPage: //*[@id="kb-nav--main"]/div[2]/form/a[@class='next']
+    lastPage: //*[@id="kb-nav--main"]/div[2]/form/span[2]/span[2]
+   
+  id:
+    searchTextBox: query
+    acceptCookie: onetrust-accept-btn-handler
+    searchBtn: search
+  url: 
+    springPage: https://link.springer.com/ 
+
+    
+  

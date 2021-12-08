@@ -1,0 +1,8 @@
+As a user, I want to validate the filter for 2G coverage.
+As a user, I want to validate the filter for 3G coverage.
+As a user, I want to validate the filter for 4G coverage.
+As a user, I want to validate system behavior by filtering the Asia plan with non-Asian countries.
+As a user, I want to validate system behavior by filtering the Europe+ plan with non-European countries.
+As a user, I want to validate system behavior by filtering the North Amarica plan with non-North Americam countries.
+As a user, I want to filter out a non-existent country.
+As a user, I want to clear the search filters.
