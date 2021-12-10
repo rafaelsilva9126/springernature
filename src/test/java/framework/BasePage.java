@@ -62,7 +62,6 @@ public class BasePage {
 
 		}
 
-		js = (JavascriptExecutor) driver;
 		wait = new WebDriverWait(driver, 1);
 		wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30)).pollingEvery(Duration.ofSeconds(1))
 				.ignoring(Exception.class);
@@ -75,8 +74,7 @@ public class BasePage {
 		driver.get(url);
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		//driver.manage().timeouts().pageLoadTimeout(1, TimeUnit.SECONDS);
-		//driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+
 	}
 
 	public List<WebElement> getElementsByXpath(String xpath) {
@@ -84,9 +82,7 @@ public class BasePage {
 		return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(xpath)));
 	}
 
-	public WebElement getElementByCss(String css) {
-		return wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(css)));
-	}
+
 
 	public WebElement getElementByXpath(String xpath) {
 		return wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
@@ -96,24 +92,8 @@ public class BasePage {
 		return wait.until(ExpectedConditions.elementToBeClickable(By.id(id)));
 	}
 
-	public void keyEnter() {
-		Actions builder = new Actions(driver);
-		builder.sendKeys(Keys.ENTER).perform();
-	}
 
-	public WebElement waitForElement(By locator, int timeout) {
-		WebElement element = null;
-		try {
-			System.out.println("Waiting for max:: " + timeout + " seconds for element to be available");
 
-			WebDriverWait wait = new WebDriverWait(driver, 5);
-			element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-			System.out.println("Element appeared on the web page");
-		} catch (Exception e) {
-			System.out.println("Element not appeared on the web page");
-		}
-		return element;
-	}
 
 	public void quitDriver() {
 		if ((environmentProperties.getProperty("environments.path.browser")).equals("firefox")) {

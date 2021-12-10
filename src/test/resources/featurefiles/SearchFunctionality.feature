@@ -15,5 +15,5 @@ Feature: As a QA Engineer, I want to check if the search functionality is workin
     Examples:
     |name                                              |display|
     |"The Palgrave Handbook of African Women's Studies"|true   |
-    |"kwdwwdwpdpwdkdkopw"|true   |
+    |"kwdwwdwpdpwdkdkopw"                              |false   |
     
