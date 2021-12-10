@@ -9,6 +9,7 @@ search:
     nextPage: //*[@id="kb-nav--main"]/div[2]/form/a[@class='next']
     lastPage: //*[@id="kb-nav--main"]/div[2]/form/span[2]/span[2]
     noResult: //*[@id="no-results-message"]/h2/strong
+    allResults: //*[@id='results-list']/li
    
   id:
     searchTextBox: query

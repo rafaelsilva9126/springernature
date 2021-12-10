@@ -2,11 +2,8 @@ package pageobjects;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.springframework.core.env.ConfigurableEnvironment;
 
@@ -94,7 +91,7 @@ public class SearchPageObjects extends BasePage {
 			int finaLastPage = Integer.parseInt(lastPage);
 
 			for (int i = 1; i <= finaLastPage; i++) {
-				results.addAll(getElementsByXpath("//*[@id='results-list']/li"));
+				results.addAll(getElementsByXpath(searchProperties.getProperty("search.xpath.allResults")));
 				if (i != finaLastPage) {
 					getElementByXpath((searchProperties.getProperty("search.xpath.nextPage"))).click();
 				}
@@ -103,19 +100,18 @@ public class SearchPageObjects extends BasePage {
 
 		} else {
 			if (finalQuantityOfResult > 0) {
-				results.addAll(getElementsByXpath("//*[@id='results-list']/li"));
+				results.addAll(getElementsByXpath((searchProperties.getProperty("search.xpath.allResults"))));
 			}
 
 		}
 		if (finalQuantityOfResult != 0) {
 			int numberOfRecords = results.size();
 			Assert.assertEquals(finalQuantityOfResult, numberOfRecords);
-		}
-		else {
+		} else {
 			noResult();
 		}
 	}
-	
+
 	public void noResult() {
 		String noResult = getElementByXpath((searchProperties.getProperty("search.xpath.noResult"))).getText();
 		Assert.assertEquals(noResult, "Sorry");

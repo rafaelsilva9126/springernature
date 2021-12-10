@@ -1,8 +1,5 @@
 package stepdefinitions;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.core.env.ConfigurableEnvironment;
 
 import constants.SearchProperties;
@@ -44,6 +41,7 @@ public class SearchStepDefinition {
 	public void theWordTypedIsDisplayedOnTheTopOfPage() {
 		searchPageObjects.validateTypedWord();
 	}
+	//teste
 	
 	@Then("The amount of result to be displayed")
 	public void theAmountOfResultToBeDisplayed() {

@@ -1,5 +1,5 @@
 environments:
   path:
-    browser: firefox
+    browser: chrome
  
   
