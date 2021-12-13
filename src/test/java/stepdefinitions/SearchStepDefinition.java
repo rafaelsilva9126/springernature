@@ -41,7 +41,6 @@ public class SearchStepDefinition {
 	public void theWordTypedIsDisplayedOnTheTopOfPage() {
 		searchPageObjects.validateTypedWord();
 	}
-	//teste
 	
 	@Then("The amount of result to be displayed")
 	public void theAmountOfResultToBeDisplayed() {
